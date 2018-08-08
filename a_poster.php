@@ -27,6 +27,11 @@ if(!empty($_POST["name"][0])){
             mysqli_query($link,$sql);
         }
         
+        if(!empty($_POST["delete"][$i])){
+          $sql = "DELETE FROM poster where poster_seq = '".$_POST["delete"][$i]."' ; ";
+          mysqli_query($link,$sql);
+      }
+
     }
 }
 

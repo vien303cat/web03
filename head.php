@@ -2,8 +2,10 @@
   session_start();
   $link = mysqli_connect('localhost','root','','db03');
   mysqli_query($link,"SET NAMES UTF8");
-  $strtime = strtotime("+6hours");
-  $time = date("Y-m-d H:i:s",$strtime);
+  $strtime = strtotime("+6hours"); 
+  $time = date("Y-m-d H:i:s",$strtime);  
+  $downtime = strtotime("+6hours-3day");   //下檔日期利用上檔日期減三天 詳情在head比較方便  因為index也要用到讓下檔的影片不顯示
+  $dt = date("Y-m-d",$downtime);          // 這兩行是做到後面的時候做的
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
