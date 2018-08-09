@@ -3,7 +3,8 @@
   $link = mysqli_connect('localhost','root','','db03');
   mysqli_query($link,"SET NAMES UTF8");
   $strtime = strtotime("+6hours"); 
-  $time = date("Y-m-d H:i:s",$strtime);  
+  $time = date("Y-m-d H:i:s",$strtime); 
+  $theday = date("Y-m-d",$strtime);
   $downtime = strtotime("+6hours-3day");   //下檔日期利用上檔日期減三天 詳情在head比較方便  因為index也要用到讓下檔的影片不顯示
   $dt = date("Y-m-d",$downtime);          // 這兩行是做到後面的時候做的
 ?>
@@ -24,7 +25,7 @@
   <div id="top" class="ct" style=" background:#999 center; background-size:cover; " title="替代文字">
     <h1>ABC影城</h1>
   </div>
-  <div id="top2"> <a href="index.php">首頁</a> <a href="#">線上訂票</a> <a href="#">會員系統</a> <a href="login.php">管理系統</a> </div>
+  <div id="top2"> <a href="index.php">首頁</a> <a href="ticket.php">線上訂票</a> <a href="#">會員系統</a> <a href="login.php">管理系統</a> </div>
   <div id="text"> <span class="ct">最新活動</span>
     <marquee direction="right">
     ABC影城票價全面八折優惠1個月

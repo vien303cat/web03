@@ -1,6 +1,6 @@
 <?php
 
-$sql = "select * from movie";
+$sql = "select * from movie order by movie_desc";
 $c1  = mysqli_query($link,$sql);
 $c2  = mysqli_fetch_assoc($c1);
 

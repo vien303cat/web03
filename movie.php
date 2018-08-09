@@ -12,7 +12,7 @@ $sql = "select * from movie where movie_display = '1'";
 $c1  = mysqli_query($link,$sql);
 $allrow = mysqli_num_rows($c1);
 
-$sql = "select * from movie where movie_display = '1'  and movie_upday > '$dt'  order by movie_desc limit $open_page,$add_page ";
+$sql = "select * from movie where movie_display = '1'  and movie_upday >= '$dt'  order by movie_desc limit $open_page,$add_page ";
 $c1  = mysqli_query($link,$sql);
 $c2  = mysqli_fetch_assoc($c1);
 
