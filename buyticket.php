@@ -1,5 +1,6 @@
 <?php 
 include_once("head.php"); 
+
 ?>
 <style>
 #ding{
@@ -12,6 +13,7 @@ include_once("head.php");
     height:100px;
     display:inline-block;
     margin: 3px;
+    float:left;
 }
 .cb{
     width:20px;
@@ -26,7 +28,8 @@ include_once("head.php");
 <div id="mm">
 
     <div id = "ding">
-    <?php for($i=1;$i<=20;$i++){ 
+    <?php 
+    for($i=1;$i<=20;$i++){ 
         $p = ceil($i/5);  //無條件進位
         if($p>=1){
             $k = $i - ($p-1)*5 ;
@@ -34,10 +37,23 @@ include_once("head.php");
             $k = $i ;
         }
         
+
+        $sql = "select * from ticket where ticket_movieseq = '".$_POST["s1"]."' and ticket_date = '".$_POST["s2"]."' and ticket_site = '".$_POST["s3"]."' and ticket_sit = '$i'";
+        $c1 = mysqli_query($link,$sql);
+        $row = mysqli_num_rows($c1);
         ?>
+        <?php if($row == 1 ){ ?>
         <div class="dingwa"><img src='img/03D03.png'><br>
-        <?=$p?>排-<?=$k?>號<br>
+        <?=$p?>排-<?=$k?>號
+        
+        <?php }else{  ?>
+        <div class="dingwa"><img src='img/03D02.png'><br>
+        <?=$p?>排-<?=$k?>號
         <div class="cb"><input type="checkbox" name="aa[]" id="cs<?=$i?>" value="<?=$i?>" onclick="check_select(<?=$i?>);" ></div>
+ 
+        <?php }  ?>
+        
+
         </div>
     <?php } ?>
     <table width="100%" border="0" align="center" cellpadding="2" cellspacing="2">

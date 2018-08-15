@@ -10,8 +10,12 @@ if(!empty($_GET["redo"])){
     $include= "a_vvupdate.php" ;
 }else if($_GET["redo"] == "vvadd"){
   $include= "a_vvadd.php" ;
-}
+}else if($_GET["redo"] == "order"){
+  $include= "a_ticket.php" ;
 }else{ $include = "a_main.php"; }
+}else{
+  $include = "a_main.php";
+}
 ?>
 
   <div id="mm">

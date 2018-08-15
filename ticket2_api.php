@@ -9,7 +9,10 @@
   $movieseq = $_POST["movieseq"];
   $s2 = $_POST["s2"];
   for($i=1;$i<=5;$i++){
-    $chair[$i] = "20";
+    $sql = "select * from ticket where ticket_movieseq = '$movieseq' and ticket_date = '$s2' and ticket_site = '$i'";
+    $c1 = mysqli_query($link,$sql);
+    $row = mysqli_num_rows($c1);
+    $chair[$i] = 20 - $row;
   }
 
   if($s2 != $today){
@@ -17,22 +20,22 @@
 
     <select name="s3" id="s3" >
     <option >請選擇場次</option>
-    <option value="1" <?php if(!empty($_POST["v3"]) && $_POST["v3"]  == 1 ){ echo "selected:selected"; } ?> >14:00~16:00 剩餘座位 <?=$chair[1]?></option>
-    <option value="2" <?php if(!empty($_POST["v3"]) && $_POST["v3"]  == 2 ){ echo "selected:selected"; } ?> >16:00~18:00 剩餘座位 <?=$chair[2]?></option>
-    <option value="3" <?php if(!empty($_POST["v3"]) && $_POST["v3"]  == 3 ){ echo "selected:selected"; } ?> >18:00~20:00 剩餘座位 <?=$chair[3]?></option>
-    <option value="4" <?php if(!empty($_POST["v3"]) && $_POST["v3"]  == 4 ){ echo "selected:selected"; } ?>>20:00~22:00 剩餘座位 <?=$chair[4]?></option>
-    <option value="5" <?php if(!empty($_POST["v3"]) && $_POST["v3"]  == 5 ){ echo "selected:selected"; } ?> >22:00~24:00 剩餘座位 <?=$chair[5]?></option>
+    <option value="1" >14:00~16:00 剩餘座位 <?=$chair[1]?></option>
+    <option value="2" >16:00~18:00 剩餘座位 <?=$chair[2]?></option>
+    <option value="3" >18:00~20:00 剩餘座位 <?=$chair[3]?></option>
+    <option value="4"  >20:00~22:00 剩餘座位 <?=$chair[4]?></option>
+    <option value="5"   >22:00~24:00 剩餘座位 <?=$chair[5]?></option>
     </select>
 
     <?php }else{
       ?>
     <select name="s3" id="s3" >
     <option >請選擇場次</option>
-    <?php if($nowtime <  14 ){  ?> <option value="1" <?php if(!empty($_POST["v3"]) && $_POST["v3"]  == 1 ){ echo "selected:selected"; } ?> >14:00~16:00 剩餘座位 <?=$chair[1]?></option> <?php } ?>
-    <?php if($nowtime <  16 ){  ?> <option value="2" <?php if(!empty($_POST["v3"]) && $_POST["v3"]  == 2 ){ echo "selected:selected"; } ?> >16:00~18:00 剩餘座位 <?=$chair[2]?></option> <?php } ?>
-    <?php if($nowtime <  18 ){  ?> <option value="3" <?php if(!empty($_POST["v3"]) && $_POST["v3"]  == 3 ){ echo "selected:selected"; } ?> >18:00~20:00 剩餘座位 <?=$chair[3]?></option> <?php } ?>
-    <?php if($nowtime <  20 ){  ?> <option value="4" <?php if(!empty($_POST["v3"]) && $_POST["v3"]  == 4 ){ echo "selected:selected"; } ?> >20:00~22:00 剩餘座位 <?=$chair[4]?></option> <?php } ?>
-    <?php if($nowtime <  22 ){  ?> <option value="5" <?php if(!empty($_POST["v3"]) && $_POST["v3"]  == 5 ){ echo "selected:selected"; } ?> >22:00~24:00 剩餘座位 <?=$chair[5]?></option> <?php } ?>
+    <?php if($nowtime <  14 ){  ?> <option value="1"  >14:00~16:00 剩餘座位 <?=$chair[1]?></option> <?php } ?>
+    <?php if($nowtime <  16 ){  ?> <option value="2"  >16:00~18:00 剩餘座位 <?=$chair[2]?></option> <?php } ?>
+    <?php if($nowtime <  18 ){  ?> <option value="3"  >18:00~20:00 剩餘座位 <?=$chair[3]?></option> <?php } ?>
+    <?php if($nowtime <  20 ){  ?> <option value="4"  >20:00~22:00 剩餘座位 <?=$chair[4]?></option> <?php } ?>
+    <?php if($nowtime <  22 ){  ?> <option value="5"  >22:00~24:00 剩餘座位 <?=$chair[5]?></option> <?php } ?>
     </select>
 
 
