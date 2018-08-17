@@ -16,7 +16,7 @@ $c1  = mysqli_query($link,$sql);
 $c2  = mysqli_fetch_assoc($c1);
 ?>
 
-<form method="POST" action="buyticket.php?">
+<form method="POST" action="buyticket.php?" target="_blank">
   <div id="mm">
   <table width="60%" border="1" align="center" cellpadding="2" cellspacing="2"　class="ct a rb">
   <tr>
@@ -42,7 +42,7 @@ $c2  = mysqli_fetch_assoc($c1);
     </td>
   </tr>
   <tr>
-    <td colspan="2" align="center" valign="middle"><input type="submit" value="確定">　　<input type="button" value="重置" onclick="document.location.href='ticket.php?seq=<?=$seq?>'"></td>
+    <td colspan="2" align="center" valign="middle"><input type="submit" value="確定" >　　<input type="button" value="重置" onclick="document.location.href='ticket.php?seq=<?=$seq?>'"></td>
   </tr>
 </table>
   </div>
@@ -50,9 +50,6 @@ $c2  = mysqli_fetch_assoc($c1);
 </form>
     <script>
     select1();
-
-    <?php  if(!empty($_GET["v3"])){ echo "select22()" ;} ?>
-
 
     function select1(){
         s1 = document.getElementById("s1").value;             /* var s1 = $("#s1").val(); */

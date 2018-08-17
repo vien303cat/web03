@@ -67,7 +67,7 @@ include_once("head.php");
     <td align="center">您已勾選了<span id="c1" style="color:#F00;">0</span>張票，最多可以選擇<span id="c2" ><font color="red">4</font></span>張票</td>
   </tr>
   <tr>
-    <td align="center"><input type="submit" value="訂購"><input type="button" value="上一步" onclick="document.location.href='ticket.php?seq=<?=$_POST["s1"]?>'"></td>
+    <td align="center"><input type="submit" value="訂購"><input type="button" value="上一步" onclick="close11()"></td>
   </tr>
 </table>
     </div>
@@ -77,6 +77,10 @@ include_once("head.php");
 </form>
 <script>
 var totle_select = 0 ;
+
+function close11(){
+    window.close();
+}
 
 function check_select(cc){
     ooxx = document.getElementById("cs"+cc).checked ;  //偵測是否處於點擊狀態

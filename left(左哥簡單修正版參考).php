@@ -96,7 +96,7 @@ $cc2  = mysqli_fetch_assoc($cc1);
     ?>
     change_time();
     function change_time(){
-        look_pic(cp_pic[pic_time],cp_name[pic_time],cp_ani[pic_time]);  //輪播資料套完之後再套進點小圖的動畫JS那邊
+        look_pic1(cp_pic[pic_time],cp_name[pic_time],cp_ani[pic_time]);  //輪播資料套完之後再套進點小圖的動畫JS那邊
         pic_time +=1 ;
         if(pic_time >= <?=$row?>) { pic_time = 0 ; }
         setTimeout("change_time()",5000);
@@ -129,7 +129,7 @@ $cc2  = mysqli_fetch_assoc($cc1);
 
 
     //點小圖跑大圖  利用小圖片傳過來的資料庫資料 圖片位置、圖片名稱、圖片動畫 來判斷 先判斷是哪個動畫 然後代到3個動畫function裡面再讓圖片display:none 跑JQ用的動畫讓他跑出來
-
+ 
     function look_pic(pic,picname,anistyle){
         document.getElementById("posttxt").innerHTML = picname ;
         if (anistyle == 1){
@@ -140,20 +140,26 @@ $cc2  = mysqli_fetch_assoc($cc1);
             change3(pic);
         }
     }
-    function change1(pic){
+    function change1(pic,picname,anistyle){
         //document.getElementById("postimg").innerHTML = "<img src='img/"+pic+"' class='tt' style='display:none'>" ;
+        document.getElementById("posttxt").innerHTML = picname ;
         $("#postimg").html("<img src='img/"+pic+"' class='tt' style='display:none'>");
+        switch(anistyle){
+            case '1':
+                $("#ani").animate({width:'-=100%',height:'-=100%'});
+                $("#ani").animate({width:'+=100%',height:'+=100%'},3000);
+            case '3':
+                $("#ani").animate({width:'-=100%',height:'-=100%'});
+                $("#ani").animate({width:'+=100%',height:'+=100%'},3000);
+                break;
+                return;
+                continue;
+        }
+        
         $(".tt").fadeIn(1000); 
        
     }
-    function change2(pic){
-        document.getElementById("postimg").innerHTML = "<img src='img/"+pic+"' class='tt' style='display:none'>" ;
-        $(".tt").slideDown(1000); 
-    }
-    function change3(pic){
-        document.getElementById("postimg").innerHTML = "<img src='img/"+pic+"' class='tt' style='display:none'>" ;
-        $(".tt").show(1000); 
-    }
+
 </script>
 
 
